@@ -19,8 +19,5 @@ length = int(input('how many items would you like in the list '))
 num_range = int(input("what is the highest number represented in the list "))
 
     
-
-
-
-# ********************execution****************
+    # ********************execution****************
 print(random_int_list(length, num_range))
