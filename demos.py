@@ -1,10 +1,12 @@
 from runtime_analysis_proj import *
-
+from timer import Timer
 
 random_list = random_int_list(length, num_range)
 
 # selection_sort 
 def selection_sort (arr):
+    t = Timer()
+    t.start()
     # set marker will move through the list on outer loop
     marker = 0
     # spot marker has to be less than the len of the array
@@ -18,6 +20,7 @@ def selection_sort (arr):
                 arr[marker], arr[num] = arr[num], arr[marker]
         # iterate the marker by one 
         marker +=1
+    t.stop()
     return arr
 
  
