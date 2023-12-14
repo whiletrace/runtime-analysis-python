@@ -1,12 +1,10 @@
-from runtime_analysis_proj import *
-from timer import Timer
 
-random_list = random_int_list(length, num_range)
+
+
 
 # selection_sort 
 def selection_sort (arr):
-    t = Timer()
-    t.start()
+
     # set marker will move through the list on outer loop
     marker = 0
     # spot marker has to be less than the len of the array
@@ -20,12 +18,12 @@ def selection_sort (arr):
                 arr[marker], arr[num] = arr[num], arr[marker]
         # iterate the marker by one 
         marker +=1
-    t.stop()
+
     return arr
 
  
 # test 
-print(selection_sort(random_list))
+
 
 
 # quicksort 
@@ -46,7 +44,7 @@ def quick_sort(arr):
 
     
 # XXXXXXXXXXXX Quicksort Execution XXXXXXXXXXXXXXXXXXX 
-print(quick_sort(random_list))
+
 
 
 # bubble sort 
@@ -61,7 +59,7 @@ def bubble_sort(arr):
     return arr
         
 
-print(bubble_sort(random_list))
+
 
 
 # insertion sort
@@ -80,7 +78,7 @@ def insertion_sort(arr):
     return arr
    
 # XXXXXXXXXXXX insertion_sort Execution XXXXXXXXXXXXXXXXXXX 
-print(insertion_sort(random_list))
+
 
 
 #merge sort
@@ -104,17 +102,17 @@ def merge_sorted(arr1, arr2):
     return sorted_arr
 
 
-def divide_arr(arr):
+def mergesort(arr):
     if len(arr) < 2:
         return arr[:]
     else:
         middle = len(arr)//2
        
-        l1 = divide_arr(arr[:middle])
-        l2 = divide_arr(arr[middle:])
+        l1 = mergesort(arr[:middle])
+        l2 = mergesort(arr[middle:])
         return merge_sorted(l1, l2)
       
 # XXXXXXXXXXXX Program Execution XXXXXXXXXXXXXXXXXXX
     
 
-print(divide_arr(random_list))
+
