@@ -1,29 +1,13 @@
 
-
-
-
 # selection_sort 
 def selection_sort (arr):
-
-    # set marker will move through the list on outer loop
     marker = 0
-    # spot marker has to be less than the len of the array
     while marker < len(arr):
-    #create inner loop that will compare numbers and perform position swapp within array
         for num in range(marker, len(arr)):
-            # comparison of marker to number within list
-            # if number is smaller than marker  continue iterating through the list
             if arr[num] < arr[marker]:
-                # swap number and the marker
                 arr[marker], arr[num] = arr[num], arr[marker]
-        # iterate the marker by one 
         marker +=1
-
     return arr
-
- 
-# test 
-
 
 
 # quicksort 
@@ -42,10 +26,6 @@ def quick_sort(arr):
                 larger.append(num)
     return quick_sort(smaller) + equal + quick_sort(larger)
 
-    
-# XXXXXXXXXXXX Quicksort Execution XXXXXXXXXXXXXXXXXXX 
-
-
 
 # bubble sort 
 def bubble_sort(arr):
@@ -59,27 +39,19 @@ def bubble_sort(arr):
     return arr
         
 
-
-
-
 # insertion sort
 def insertion_sort(arr):
-    
     key = 1
     for num in range(key, len(arr)):
         if arr[key] < arr[key-1]:
             arr[key-1], arr[key] = arr[key], arr[key-1]
             working_index = key - 1
-    
             while arr[working_index] < arr[working_index - 1] and working_index != 0:
                 arr[working_index-1], arr[working_index] = arr[working_index], arr[working_index- 1]
                 working_index -= 1
         key += 1
     return arr
    
-# XXXXXXXXXXXX insertion_sort Execution XXXXXXXXXXXXXXXXXXX 
-
-
 
 #merge sort
 def merge_sorted(arr1, arr2):
@@ -92,7 +64,6 @@ def merge_sorted(arr1, arr2):
         else:
             sorted_arr.append(arr2[j])
             j += 1
-
     while i < len(arr1): 
         sorted_arr.append(arr1[i])
         i += 1
@@ -112,7 +83,5 @@ def mergesort(arr):
         l2 = mergesort(arr[middle:])
         return merge_sorted(l1, l2)
       
-# XXXXXXXXXXXX Program Execution XXXXXXXXXXXXXXXXXXX
-    
-
-
+def python_sort(arr):
+    return arr.sort()

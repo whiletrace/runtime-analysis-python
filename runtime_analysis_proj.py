@@ -1,25 +1,40 @@
 import random
-from demos import quick_sort, bubble_sort, insertion_sort, mergesort
+from demos import quick_sort, bubble_sort, insertion_sort, mergesort, python_sort
 from timer import Timer
-# part 1 create random integer list generator
+
+length = 'enter a number for the length of the list '
+num_range = 'what is the largest number represented '
+run_times= 'how many times would you like this to run '
+
+# handle input errors 
+def get_input(prompt):
+    while True:
+       
+        try:
+            resp = int(input(prompt))
+            break
+        except ValueError:
+            print('this needs to be a number please try again')
+    return resp
+
+handled_length = get_input(length)
+handled_num_range =get_input(num_range)
+handled_run_time = get_input(run_times)
+
+# create random integer list generator
 def random_int_list(length, num_range):
-    
-    # create a list 
     random_list = []
-     # create n number of random integers
     for i in range(length):
         rand = random.randint(0, num_range)
-        # place random integers in the list 
         random_list.append(rand)
-    # return the list     
     return random_list
+
+#
    
-# part 2 get user input for size and ranget of list
+# get user input for size and range of list
 
-length = int(input('how many items would you like in the list '))
-num_range = int(input("what is the highest number represented in the list "))
-run_times = int(input("How many timew do you want to run? "))
 
+# 
 def analyze_func(func_name, arr):
     t = Timer()
     t.start()
@@ -28,12 +43,16 @@ def analyze_func(func_name, arr):
 
     # ********************execution****************
 
-for num in range(run_times):
+for num in range(handled_run_time):
     print("-"*40)
     print(f"Run: {num+1}")
-    l = (random_int_list(length, num_range))
+    l = (random_int_list(handled_length, handled_num_range))
+    print(l)
+    print(handled_length)
+    print(handled_num_range)
     analyze_func(quick_sort,l)
     analyze_func(bubble_sort,l.copy())
     analyze_func(insertion_sort,l)
     analyze_func(mergesort,l)
+    analyze_func(python_sort,l)
     print("-"*40)
